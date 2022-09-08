@@ -1,0 +1,15 @@
+@import 'reboot/bootstrap-reboot.min';
+@import 'fonts/fonts';
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    justify-content:flex-start;
+}
+
+@import 'blocks/color/color';

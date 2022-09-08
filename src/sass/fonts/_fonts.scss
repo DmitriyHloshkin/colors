@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "Roboto";
+    font-display: swap;
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+    src: local("Roboto-Regular"), local("Roboto-Regular"), url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "icomoon";
+    src: url("../fonts/font-icons/icomoon.eot?u9wcc7");
+    src: url("../fonts/font-icons/icomoon.eot?u9wcc7#iefix") format("embedded-opentype"),
+        url("../fonts/font-icons/icomoon.ttf?u9wcc7") format("truetype"), url("../fonts/font-icons/icomoon.woff?u9wcc7") format("woff"),
+        url("../fonts/font-icons/icomoon.svg?u9wcc7#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-lock:before {
+    content: "\e98f";
+}
+.icon-unlocked:before {
+    content: "\e990";
+}

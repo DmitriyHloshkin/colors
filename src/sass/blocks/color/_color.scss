@@ -1,0 +1,21 @@
+.color {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    &__hash {
+
+    }
+
+    &__btn {
+        background-color: inherit;
+        border: none;
+    }
+
+    &__lock-img {
+        font-size: 40px;
+    }
+}
