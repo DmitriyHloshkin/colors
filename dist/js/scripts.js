@@ -24,6 +24,10 @@ document.documentElement.addEventListener("click", async (event) => {
     await copyHashColor(elem.textContent);
   }
 
+  if (elem && elem.dataset.type === "modal-close") {
+      closeModal();
+  }
+
 });
 
 function generateColors() {
@@ -103,4 +107,18 @@ function getColors() {
     .map(elem => elem[1]);
 }
 
+function showModal() {
+  const modal = document.querySelector(".modal-instructions");
+
+  const timerId = setTimeout( () => {
+    modal.classList.add("modal-instructions_active");
+  },2000);
+
+}
+
+function closeModal() {
+  document.querySelector(".modal-instructions").classList.remove("modal-instructions_active");
+}
+
 setColors(getColors());
+showModal();

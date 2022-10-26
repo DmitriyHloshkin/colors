@@ -1,0 +1,54 @@
+.modal-instructions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #6416d6;
+    opacity: 0;
+    transition: opacity 3s;
+    background-color: #2cd8fc;
+    padding: 10px;
+
+    &_active {
+        opacity: 0.8;
+    }
+
+    &__modal-close {
+        display: block;
+        position: absolute;
+        font-size: 36px;
+        color: red;
+        top: -24px;
+        right: -32px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__list {
+        padding: 0;
+    }
+
+    &__instruction {
+        list-style-type: none;
+        margin-bottom: 10px;
+        padding-left: 15px;
+        position: relative;
+
+        &::after {
+            content: "\27A0";
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: -5px;
+        }
+    }
+}
