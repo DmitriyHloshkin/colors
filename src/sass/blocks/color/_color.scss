@@ -7,15 +7,29 @@
     justify-content: space-around;
 
     &__hash {
+        transition: background 1s;
 
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(0,0,0,.1);
+            border-radius: 10px;
+        }
     }
 
     &__btn {
-        background-color: inherit;
+        background-color: transparent;
         border: none;
+        transition: background 1s;
+        border-radius: 10px;
+        outline: none;
+        
+        &:hover {
+            background-color: rgba(0,0,0,.1);                       
+        }
     }
 
     &__lock-img {
         font-size: 40px;
+        display: block;
     }
 }
