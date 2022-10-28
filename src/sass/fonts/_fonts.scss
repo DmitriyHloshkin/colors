@@ -10,8 +10,21 @@
     font-family: "icomoon";
     src: url("../fonts/font-icons/icomoon.eot?u9wcc7");
     src: url("../fonts/font-icons/icomoon.eot?u9wcc7#iefix") format("embedded-opentype"),
-        url("../fonts/font-icons/icomoon.ttf?u9wcc7") format("truetype"), url("../fonts/font-icons/icomoon.woff?u9wcc7") format("woff"),
+        url("../fonts/font-icons/icomoon.ttf?u9wcc7") format("truetype"),
+        url("../fonts/font-icons/icomoon.woff?u9wcc7") format("woff"),
         url("../fonts/font-icons/icomoon.svg?u9wcc7#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "icomoon";
+    src: url("../fonts/font-icons/icomoon-link.eot?5ubdeb");
+    src: url("../fonts/font-icons/icomoon-link.eot?5ubdeb#iefix") format("embedded-opentype"),
+        url("../fonts/font-icons/icomoon-link.ttf?5ubdeb") format("truetype"),
+        url("../fonts/font-icons/icomoon-link.woff?5ubdeb") format("woff"),
+        url("../fonts/font-icons/icomoon-link.svg?5ubdeb#icomoon") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -38,4 +51,8 @@
 }
 .icon-unlocked:before {
     content: "\e990";
+}
+
+.icon-link:before {
+    content: "\e9cb";
 }

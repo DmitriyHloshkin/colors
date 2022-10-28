@@ -20,8 +20,27 @@ document.documentElement.addEventListener("click", async (event) => {
 
   }
 
-  if (elem && elem.dataset.type === "text") {
-    await copyHashColor(elem.textContent);
+  if (elem && elem.dataset.type === "link") {
+    let hash, parent;
+    const nameTag = elem.tagName.toLowerCase();
+
+    switch (nameTag) {
+      case "div":
+        hash = elem.querySelector("color__hash").textContent;
+        parent = elem.parentElement;
+        break;
+
+      case "span":
+        hash = elem.nextElementSibling.textContent;
+        parent = elem.parentElement.parentElement;
+        break;
+      
+      default:
+        hash = elem.textContent;
+        parent = elem.parentElement.parentElement;
+    }
+    
+    await copyHashColor(hash, parent);
   }
 
   if (elem && elem.dataset.type === "modal-close") {
@@ -41,13 +60,28 @@ function generateColors() {
   return hash;
 }
 
-async function copyHashColor(hash) {
+async function copyHashColor(hash, parent) {
+  const luminate = chroma(hash).luminance() > 0.5 ? "black" : "white",
+        elemLinkIsCopy = parent.querySelector(".color__copy-effect");
+
+  let text = "Link is copy";
+  elemLinkIsCopy.style.color = luminate;
+  
   try {
     await navigator.clipboard.writeText(hash);
-    console.log('hash страницы скопирован в буфер обмена');
+    elemLinkIsCopy.textContent = text;
+
   } catch (err) {
-    console.error('Не удалось скопировать: ', err);
+    text = "not copied";
+    
+  } finally {
+    elemLinkIsCopy.textContent = text;
+    elemLinkIsCopy.classList.add("color__copy-effect-active");
+    setTimeout( () => {
+      elemLinkIsCopy.classList.remove("color__copy-effect-active");
+    }, 1000);
   }
+
 }
 
 function setColors(colors = []) {
@@ -56,7 +90,8 @@ function setColors(colors = []) {
   colorsColumn.forEach((elem, index) => {
     const columnText = elem.querySelector(".color__hash"),
       hash = colors[index] ? colors[index] : generateColors(),
-      lock = elem.querySelector(".color__lock-img");
+      lock = elem.querySelector(".color__lock-img"),
+      iconLink = elem.querySelector(".icon-link");
 
     if (lock.classList.contains("icon-lock")) {
       if (!colors[index]) {
@@ -72,10 +107,11 @@ function setColors(colors = []) {
     elem.style.background = "#" + hash;
     columnText.textContent = "#" + hash;
 
-    const luminate = chroma(hash).luminance();
+    const luminate = chroma(hash).luminance() > 0.5 ? "black" : "white";
 
-    lock.style.color = luminate > 0.5 ? "black" : "white";
-    columnText.style.color = luminate > 0.5 ? "black" : "white";
+    lock.style.color        = luminate ;
+    iconLink.style.color    = luminate;
+    columnText.style.color  = luminate;
 
   });
 
@@ -112,7 +148,7 @@ function showModal() {
 
   const timerId = setTimeout( () => {
     modal.classList.add("modal-instructions_active");
-  },2000);
+  },1000);
 
 }
 
