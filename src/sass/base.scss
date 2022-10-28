@@ -12,5 +12,29 @@
     justify-content:flex-start;
 }
 
+.blocking-screen {
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    position: absolute;
+
+
+    &__text {
+        color: white;
+    }
+}
+
 @import 'blocks/color/color';
 @import 'blocks/modal/modal';
+
+
+@media (max-width: 1023px) {
+    .blocking-screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
