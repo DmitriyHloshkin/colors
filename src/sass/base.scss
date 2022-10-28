@@ -21,7 +21,6 @@
     background-color: black;
     position: absolute;
 
-
     &__text {
         color: white;
     }
@@ -29,6 +28,7 @@
 
 @import 'blocks/color/color';
 @import 'blocks/modal/modal';
+@import 'blocks/git-link/svg-git';
 
 
 @media (max-width: 1023px) {
@@ -36,5 +36,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .main {
+        display: none;
     }
 }
